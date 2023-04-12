@@ -1,0 +1,23 @@
+package Modelo;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class Acciones {
+	
+	public Persona IngresarPersona() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Ingrese Nombre: ");
+		String nombre = sc.nextLine();
+		System.out.print("Ingrese Apellido: ");
+		String apellido = sc.nextLine();
+		System.out.print("Ingrese fecha nacimiento (en formato dd/MM/yyyy): ");
+		String fechaNac = sc.nextLine();
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate fechaDeNacimiento = LocalDate.parse(fechaNac, formato);
+		
+		Persona persona=new Persona(nombre,apellido,fechaDeNacimiento);
+		return persona;
+	}
+}
